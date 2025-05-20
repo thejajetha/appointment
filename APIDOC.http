@@ -1,0 +1,68 @@
+###API for creating User zccount
+
+POST http://127.0.0.1:8000/api/register/
+Content-Type: application/json
+
+{
+    "username":"django2",
+    "email":"django@gmail.com",
+    "password":"Password@123",
+    "phone":"9207390816"
+}
+
+
+###API for fetching Token
+
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username":"django",
+    "password":"Password@123"
+}
+
+
+###API for creating an appointment
+
+POST http://127.0.0.1:8000/api/appointments/
+Content-Type: application/json
+Authorization: Token 2f6bd822e15530c24f43fb78526991c513bfffa4
+
+{
+    "name":"Bony M",
+    "phone_number":"9283919820",
+    "date":"2025-05-20",
+    "time_slot":"10:30-11:00"
+}
+
+
+###API for listing all appointments
+
+GET http://127.0.0.1:8000/api/appointments/
+Authorization: Token 2f6bd822e15530c24f43fb78526991c513bfffa4
+
+
+###API for fetching appointment detail
+
+GET http://127.0.0.1:8000/api/appointments/3/
+Authorization: Token 2f6bd822e15530c24f43fb78526991c513bfffa4
+
+###API for updating appointments
+PATCH  http://127.0.0.1:8000/api/appointments/3/
+Content-Type: application/json
+Authorization: Token 2f6bd822e15530c24f43fb78526991c513bfffa4
+
+{
+    "name":"Akash varma"
+}
+
+
+###API for deleting appointment
+
+DELETE http://127.0.0.1:8000/api/appointments/1/
+Authorization: Token 2f6bd822e15530c24f43fb78526991c513bfffa4
+
+
+
+###API call for listing available timeslots
+GET http://127.0.0.1:8000/api/appointments/slots/?date=2025-05-20
